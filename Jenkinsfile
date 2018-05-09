@@ -2,15 +2,17 @@ pipeline {
   agent any
 
   stages {
-    stage("Version-${env.BUILD_NUMBER}") {
+    stage("Version") {
       steps {
         sh 'echo "Build version: ${BUILD_NUMBER}"'
       }
     }
 
     stage("Compile") {
-      steps {
-        sh 'cd spring-boot-package-war && mvn compile'
+      dir('spring-boot-package-war') {
+        steps {
+          sh 'mvn compile'
+        }
       }
     }
   }
