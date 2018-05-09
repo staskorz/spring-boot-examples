@@ -4,13 +4,15 @@ pipeline {
   stages {
     stage("Version") {
       steps {
-        sh 'echo "Build version: ${BUILD_NUMBER}"'
+        sh "echo 'Build version: ${BUILD_NUMBER}'"
       }
     }
 
     stage("Compile") {
       steps {
-        sh 'cd spring-boot-package-war && mvn compile'
+	    dir('spring-boot-package-war') {
+          sh 'mvn compile'
+	    }
       }
     }
   }
