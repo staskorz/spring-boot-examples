@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   stages {
-    stage("Version") {
+    stage("Version-$version") {
       steps {
         sh 'echo "Build version: ${BUILD_NUMBER}"'
       }
