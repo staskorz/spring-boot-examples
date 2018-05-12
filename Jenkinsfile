@@ -10,9 +10,9 @@ pipeline {
 
     stage("Compile") {
       steps {
-	    dir('spring-boot-package-war') {
-          sh 'mvn compile'
-	    }
+	      dir('spring-boot-package-war') {
+            sh 'mvn compile'
+	      }
       }
     }
   }
