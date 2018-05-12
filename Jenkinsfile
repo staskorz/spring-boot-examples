@@ -15,5 +15,13 @@ pipeline {
 	      }
       }
     }
+
+    stage("Test") {
+      steps {
+	      dir('spring-boot-package-war') {
+            sh 'mvn test'
+	      }
+      }
+    }
   }
 }
