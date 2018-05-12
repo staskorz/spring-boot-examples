@@ -11,7 +11,7 @@ pipeline {
     stage("Compile") {
       steps {
 	      dir('spring-boot-package-war') {
-            sh 'mvn compile'
+            sh 'mvn clean compile'
 	      }
       }
     }
