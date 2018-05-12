@@ -27,7 +27,9 @@ pipeline {
 
   post {
     always {
-      junit '**/target/surefire-reports/*.xml'
+      dir('spring-boot-package-war') {
+        junit 'target/surefire-reports/**/*.xml'
+      }
     }
   }
 }
