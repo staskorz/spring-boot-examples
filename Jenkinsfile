@@ -24,4 +24,12 @@ pipeline {
       }
     }
   }
+
+  post {
+    always {
+      dir('spring-boot-package-war') {
+        junit 'target/surefire-reports/**/*.xml'
+      }
+    }
+  }
 }
