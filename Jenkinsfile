@@ -23,6 +23,14 @@ pipeline {
 	      }
       }
     }
+
+    stage("Package") {
+      steps {
+	      dir('spring-boot-package-war') {
+            sh 'mvn package'
+	      }
+      }
+    }
   }
 
   post {
