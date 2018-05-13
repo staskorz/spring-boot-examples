@@ -37,7 +37,9 @@ pipeline {
     success {
       dir('spring-boot-package-war') {
         script {
-          currentBuild.description = readMavenPom().getProperties().finalName
+          name = readMavenPom().getName()
+          version = readMavenPom().getVersion()
+          currentBuild.description = "${name}-${version}-${BUILD_NUMBER}"
         }
       }
     }
