@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage("Version") {
       steps {
-        sh "echo 'Build version: ${BUILD_NUMBER}'"
+        sh "echo 'Build version: ${BUILD_NUMBER}' ${POM_DISPLAYNAME} ${POM_VERSION}"
       }
     }
 
