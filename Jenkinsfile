@@ -35,15 +35,12 @@ pipeline {
     }
 
     success {
-      script {
-        version = readMavenPom().getVersion()
-        currentBuild.description = "${env.JOB_NAME}-${version}"
+      dir('spring-boot-package-war') {
+        script {
+          version = readMavenPom().getVersion()
+          currentBuild.description = "${env.JOB_NAME}-${version}"
+        }
       }
     }
   }
 }
-//script {
-//            sh "mvn -B versions:set -DnewVersion=1.0-SNAPSHOT-${env.BUILD_NUMBER} && mvn clean package"
-//            version = readMavenPom().getVersion()
-//            currentBuild.description = "${env.JOB_NAME}-${version}"
-//          }
