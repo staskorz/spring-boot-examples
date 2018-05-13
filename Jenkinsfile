@@ -32,7 +32,7 @@ pipeline {
           script {
             name = readMavenPom().getName()
             version = readMavenPom().getVersion()
-            sh "scp target/${name}-${version}-${BUILD_NUMBER}.war ubuntu2:/var/lib/tomcat7/webapps/${name}.war"
+            sh "scp target/${name}-${version}-${BUILD_NUMBER}.war ubuntu2:/var/lib/tomcat7/webapps/ROOT.war"
           }
 	      }
       }
