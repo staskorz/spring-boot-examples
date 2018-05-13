@@ -25,6 +25,14 @@ pipeline {
 	      }
       }
     }
+
+    stage("Deploy") {
+      steps {
+	      dir('spring-boot-package-war') {
+            sh 'scp target/*.war ubuntu2:/var/lib/tomcat7/webapps/'
+	      }
+      }
+    }
   }
 
   post {
