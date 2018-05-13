@@ -5,7 +5,6 @@ pipeline {
     stage("Version") {
       steps {
         sh "echo 'Build version: ${BUILD_NUMBER}'"
-        sh "echo 'env: ${env.BUILD_NUMBER}'"
       }
     }
 
