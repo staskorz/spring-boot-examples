@@ -36,6 +36,7 @@ pipeline {
 
     success {
       script {
+        version = readMavenPom().getVersion()
         currentBuild.description = "${env.JOB_NAME}-${version}"
       }
     }
