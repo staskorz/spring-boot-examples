@@ -41,6 +41,8 @@ pipeline {
           version = readMavenPom().getVersion()
           currentBuild.description = "${name}-${version}-${BUILD_NUMBER}"
         }
+
+        archiveArtifacts artifacts: 'target/*.war', fingerprint: true
       }
     }
   }
